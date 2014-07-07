@@ -1,0 +1,6 @@
+name             'skeleton'
+maintainer       'YOUR_NAME'
+maintainer_email 'YOUR_EMAIL@example.com'
+license          'All rights reserved'
+description      ''
+version          '0.0.1'
