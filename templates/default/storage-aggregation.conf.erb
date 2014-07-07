@@ -1,18 +1,15 @@
-# Schema definitions for Whisper files. Entries are scanned in order,
-# and first match wins. This file is scanned for changes every 60 seconds.
-#
-#  [name]
-#  pattern = regex
-# /etc/graphite/storage-schemas.conf
+# /etc/graphite/storage-aggregation.conf
 
 ##################################
 # Rendered by Chef, do not edit! #
 ##################################
 
-[carbon]
-pattern = ^carbon\.
-retentions = 60:90d
+[all_min]
+pattern = \.min$
+xFilesFactor = 0.33
+aggregationMethod = min
 
-[default]
-pattern = .*
-retentions = 60s:1d,5m:28d,15m:2y
+[all_max]
+pattern = \.max$
+xFilesFactor = 0.33
+aggregationMethod = maxxs

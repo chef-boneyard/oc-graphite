@@ -1,0 +1,14 @@
+upstream graphite {
+	server <%= node['oc-graphite']['_uwsgi']['listen_ip'] %>:<%= node['oc-graphite']['_uwsgi']['listen_port'] %>;
+}
+
+server {
+	listen 80;
+	server_name graphite.pwm.opscode.us;
+	charset utf-8;
+	client_max_body_size 15M;
+
+	location / {
+		proxy_pass	http://graphite;
+	}
+}

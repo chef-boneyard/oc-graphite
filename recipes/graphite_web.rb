@@ -13,3 +13,9 @@ template "/etc/graphite/local_settings.py.erb" do
   group "root"
 end
 
+execute 'graphite-manage syncdb' do
+  user '_graphite'
+  not_if { ::File.exists? '/var/lib/graphite/graphite.db' }
+end
+
+include_recipe "oc-graphite::_#{node['oc-graphite']['web']['server']}"
