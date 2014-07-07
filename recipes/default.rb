@@ -1,7 +1,8 @@
 #
-# Cookbook Name:: skeleton
-# Attributes:: default
+# Cookbook Name:: oc-graphite
+# Recipe:: graphite_web
 #
-# Copyright (C) YEAR, YOUR_NAME_OR_COMPANY
-#
-log 'replace this with a meaningful resource'
+# Copyright (C) 2014, Chef Software, Inc <legal@getchef.com>
+
+log "The oc-graphite::default recipe doesn't do anything"
+
