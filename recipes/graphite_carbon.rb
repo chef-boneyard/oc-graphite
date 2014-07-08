@@ -33,3 +33,8 @@ template "/etc/carbon/storage-aggregation.conf" do
   owner "root"
   group "root"
 end
+
+service 'carbon-cache' do
+  action [:enable, :start]
+  supports :restart => true, :start => true, :stop => true
+end

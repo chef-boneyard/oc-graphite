@@ -1,7 +1,7 @@
 package 'nginx'
 
-default['oc-graphite']['_uwsgi']['listen_ip'] = '127.0.0.1'
-default['oc-graphite']['_uwsgi']['listen_ip'] = '8081'
+node.default['oc-graphite']['_uwsgi']['listen_ip'] = '127.0.0.1'
+node.default['oc-graphite']['_uwsgi']['listen_port'] = '8081'
 include_recipe 'oc-graphite::_uwsgi'
 
 service 'nginx' do
@@ -18,14 +18,14 @@ template '/etc/nginx/sites-available/graphite' do
   notifies :reload, 'service[nginx]', :delayed
 end
 
-link '/etc/nginx/sites-available/graphite' do
-  to '/etc/nginx/sites-enabled/graphite'
+link '/etc/nginx/sites-enabled/graphite' do
+  to '/etc/nginx/sites-available/graphite'
 end
 
 if node['oc-graphite']['_nginx']['disable_default_vhost']
   file '/etc/nginx/sites-enabled/default' do
     action :delete
-  end
 
-  notifies :reload, 'service[nginx]', :delayed
+    notifies :reload, 'service[nginx]', :delayed
+  end
 end

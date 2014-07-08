@@ -21,3 +21,7 @@ template '/etc/uwsgi/apps-available/graphite.ini' do
 
   notifies :reload, 'service[uwsgi]', :delayed
 end
+
+link '/etc/uwsgi/apps-enabled/graphite.ini' do
+  to '/etc/uwsgi/apps-available/graphite.ini'
+end
