@@ -1,2 +1,8 @@
+# /etc/default/graphite-carbon
+
+##################################
+# Rendered by Chef, do not edit! #
+##################################
+
 # Enables carbon-cache on boot
 CARBON_CACHE_ENABLED=<%= node['oc-graphite']['carbon_cache']['enable'] ? "true" : "false" %>

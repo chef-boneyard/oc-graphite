@@ -1,10 +1,16 @@
+# nginx vhost definition for graphite web app
+
+##################################
+# Rendered by Chef, do not edit! #
+##################################
+
 upstream graphite {
-	server <%= node['oc-graphite']['_uwsgi']['listen_ip'] %>:<%= node['oc-graphite']['_uwsgi']['listen_port'] %>;
+	server <%= node['oc-graphite']['uwsgi']['listen_ip'] %>:<%= node['oc-graphite']['uwsgi']['listen_port'] %>;
 }
 
 server {
 	listen 80;
-	server_name <%= node['oc-graphite']['_nginx']['hostname'] || node.fqdn %>;
+	server_name <%= node['oc-graphite']['nginx']['hostname'] || node.fqdn %>;
 	charset utf-8;
 	client_max_body_size 15M;
 

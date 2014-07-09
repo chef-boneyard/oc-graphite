@@ -1,7 +1,13 @@
+#
+# Cookbook Name:: oc-graphite
+# Recipe:: _nginx
+#
+# Copyright (C) 2014, Chef Software, Inc <legal@getchef.com>
+
 package 'nginx'
 
-node.default['oc-graphite']['_uwsgi']['listen_ip'] = '127.0.0.1'
-node.default['oc-graphite']['_uwsgi']['listen_port'] = '8081'
+node.default['oc-graphite']['uwsgi']['listen_ip'] = '127.0.0.1'
+node.default['oc-graphite']['uwsgi']['listen_port'] = '8081'
 include_recipe 'oc-graphite::_uwsgi'
 
 service 'nginx' do
@@ -22,7 +28,7 @@ link '/etc/nginx/sites-enabled/graphite' do
   to '/etc/nginx/sites-available/graphite'
 end
 
-if node['oc-graphite']['_nginx']['disable_default_vhost']
+if node['oc-graphite']['nginx']['disable_default_vhost']
   file '/etc/nginx/sites-enabled/default' do
     action :delete
 

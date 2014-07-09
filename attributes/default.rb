@@ -17,9 +17,9 @@ default['oc-graphite']['web']['server'] = 'uwsgi'
 default['oc-graphite']['web']['seed_password'] = 'changeme'
 
 # These defaults are over riddent in the _nginx recipe
-default['oc-graphite']['_uwsgi']['listen_ip']   = '0.0.0.0'
-default['oc-graphite']['_uwsgi']['listen_port'] = 8080
+default['oc-graphite']['uwsgi']['listen_ip']   = '0.0.0.0'
+default['oc-graphite']['uwsgi']['listen_port'] = 8080
 
-default['oc-graphite']['_nginx']['disable_default_vhost'] = false
+default['oc-graphite']['nginx']['disable_default_vhost'] = false
 # The template will use the host's FQDN unless this attribute is set
-default['oc-graphite']['_nginx']['hostname'] = nil
+default['oc-graphite']['nginx']['hostname'] = nil

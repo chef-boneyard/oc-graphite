@@ -13,10 +13,10 @@
 - `node['oc-graphite']['web']['time_zone']`: The time zone used for the Django app (default `America/Los_Angeles`)
 - `node['oc-graphite']['web']['server']`: Which web server to use, `nginx` and `uwsgi` are currently supported (default `uwsgi`)
 - `node['oc-graphite']['web']['seed_password']`: A seed password for graphite_web's admin user, this will not change after initialization (default `changeme`)
-- `node['oc-graphite']['_uwsgi']['listen_ip']`: The IP to listen on (default `0.0.0.0`)
-- `node['oc-graphite']['_uwsgi']['listen_port']`: The port to listen on (default `8080`)
-- `node['oc-graphite']['_nginx']['disable_node_vhost']`: Set to `true` to disable the default vhost dropped in place for nginx (default `false`)
-- `node['oc-graphite']['_nginx']['hostname']`: The hostname used by the nginx vhost, if left as nil the FQDN is used (default `nil`)
+- `node['oc-graphite']['uwsgi']['listen_ip']`: The IP to listen on (default `0.0.0.0`)
+- `node['oc-graphite']['uwsgi']['listen_port']`: The port to listen on (default `8080`)
+- `node['oc-graphite']['nginx']['disable_node_vhost']`: Set to `true` to disable the default vhost dropped in place for nginx (default `false`)
+- `node['oc-graphite']['nginx']['hostname']`: The hostname used by the nginx vhost, if left as nil the FQDN is used (default `nil`)
 
 ## Recipes
 
@@ -54,7 +54,7 @@ An example role:
         "secret_key": "This key is super secret!",
         "server": "nginx"
       },
-      "_nginx": {
+      "nginx": {
         "disable_default_vhost": true,
         "hostname": "graphite.example.com"
       }
@@ -66,8 +66,6 @@ An example role:
   ]
 }
 ```
-
-
 ## Testing
 
 The cookbook provides the following Rake tasks for testing:

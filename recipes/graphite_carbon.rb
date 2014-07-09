@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: oc-graphite
-# Recipe:: graphite_web
+# Recipe:: graphite_carbon
 #
 # Copyright (C) 2014, Chef Software, Inc <legal@getchef.com>
 
