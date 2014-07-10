@@ -8,10 +8,12 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-12.04
+  - name: ubuntu-14.04
 
 suites:
   - name: default
     run_list:
-      - recipe[skeleton::default]
+      - recipe[oc-graphite::default]
+      - recipe[oc-graphite::graphite_carbon]
+      - recipe[oc-graphite::graphite_web]
     attributes:
