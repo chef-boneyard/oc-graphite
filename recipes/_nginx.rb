@@ -28,10 +28,9 @@ link '/etc/nginx/sites-enabled/graphite' do
   to '/etc/nginx/sites-available/graphite'
 end
 
-if node['oc-graphite']['nginx']['disable_default_vhost']
-  file '/etc/nginx/sites-enabled/default' do
-    action :delete
+file '/etc/nginx/sites-enabled/default' do
+  action :delete
 
-    notifies :reload, 'service[nginx]', :delayed
-  end
+  notifies :reload, 'service[nginx]', :delayed
+  only_if { node['oc-graphite']['nginx']['disable_default_vhost'] }
 end

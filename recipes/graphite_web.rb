@@ -40,7 +40,6 @@ bash 'set_up_db' do
   EOH
 
   not_if { ::File.exists? '/var/lib/graphite/graphite.db' }
-  
   notifies :run, 'execute[change_admin_pass]', :delayed
 end
 
