@@ -32,6 +32,6 @@ describe 'oc-graphite::graphite_web' do
   end
 
   it 'includes webserver recipe' do
-    expect(chef_run).to include_recipe("oc-graphite::_uwsgi")
+    expect(chef_run).to include_recipe('oc-graphite::_uwsgi')
   end
 end
