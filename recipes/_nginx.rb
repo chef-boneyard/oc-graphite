@@ -10,11 +10,6 @@ node.default['oc-graphite']['uwsgi']['listen_ip'] = '127.0.0.1'
 node.default['oc-graphite']['uwsgi']['listen_port'] = '8081'
 include_recipe 'oc-graphite::_uwsgi'
 
-service 'nginx' do
-  action [:enable, :start]
-  supports :restart => true, :start => true, :stop => true, :reload => true
-end
-
 template '/etc/nginx/sites-available/graphite' do
   source 'nginx-graphite.erb'
   owner 'root'
@@ -33,4 +28,9 @@ file '/etc/nginx/sites-enabled/default' do
 
   notifies :reload, 'service[nginx]', :delayed
   only_if { node['oc-graphite']['nginx']['disable_default_vhost'] }
+end
+
+service 'nginx' do
+  action [:enable, :start]
+  supports :restart => true, :reload => true
 end
