@@ -9,6 +9,8 @@ default['oc-graphite']['carbon_cache']['enable'] = true
 
 default['oc-graphite']['carbon']['data_dir'] = '/var/lib/graphite/whisper/'
 default['oc-graphite']['carbon']['user'] = '_graphite'
+default['oc-graphite']['carbon']['host'] = '0.0.0.0'
+default['oc-graphite']['carbon']['port'] = '2003'
 
 default['oc-graphite']['web']['secret_key'] = '0aed5c39507562f4519c2d47515e8221'
 default['oc-graphite']['web']['time_zone'] = 'America/Los_Angeles'

@@ -25,13 +25,13 @@ MAX_CREATES_PER_MINUTE = 50
 
 ENABLE_UDP_LISTENER = False
 
-LINE_RECEIVER_INTERFACE = 0.0.0.0
-LINE_RECEIVER_PORT = 2003
+LINE_RECEIVER_INTERFACE = <%= node['oc-graphite']['carbon']['host'] %>
+LINE_RECEIVER_PORT = <%= node['oc-graphite']['carbon']['port'] %>
 
-PICKLE_RECEIVER_INTERFACE = 0.0.0.0
+PICKLE_RECEIVER_INTERFACE = <%= node['oc-graphite']['carbon']['host'] %>
 PICKLE_RECEIVER_PORT = 2004
 
-CACHE_QUERY_INTERFACE = 0.0.0.0
+CACHE_QUERY_INTERFACE = <%= node['oc-graphite']['carbon']['host'] %>
 CACHE_QUERY_PORT = 7002
 
 USE_INSECURE_UNPICKLER = False
@@ -45,9 +45,9 @@ WHISPER_AUTOFLUSH = FALSE
 WHISPER_FALLOCATE_CREATE = True
 
 [relay]
-LINE_RECEIVER_INTERFACE = 0.0.0.0
+LINE_RECEIVER_INTERFACE = <%= node['oc-graphite']['carbon']['host'] %>
 LINE_RECEIVER_PORT = 2013
-PICKLE_RECEIVER_INTERFACE = 0.0.0.0
+PICKLE_RECEIVER_INTERFACE = <%= node['oc-graphite']['carbon']['host'] %>
 PICKLE_RECEIVER_PORT = 2014
 
 LOG_LISTENER_CONNECTIONS = True
@@ -62,10 +62,10 @@ MAX_QUEUE_SIZE = 10000
 USE_FLOW_CONTROL = True
 
 [aggregator]
-LINE_RECEIVER_INTERFACE = 0.0.0.0
+LINE_RECEIVER_INTERFACE = <%= node['oc-graphite']['carbon']['host'] %>
 LINE_RECEIVER_PORT = 2023
 
-PICKLE_RECEIVER_INTERFACE = 0.0.0.0
+PICKLE_RECEIVER_INTERFACE = <%= node['oc-graphite']['carbon']['host'] %>
 PICKLE_RECEIVER_PORT = 2024
 
 
